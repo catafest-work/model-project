@@ -1,15 +1,50 @@
 <template>
+  <!-- <div>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  </div> -->
+      <h1>{{ header }}</h1> 
+      <p>Welcome...</p>
+      <div v-if="showModal">
+        <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+      </div>
+      <button @click.shift = "toggleModal">open modal (alt)</button>
+
+      <!-- press ALT key and click ... -->
+      <!-- <button @click.alt = "toggleModal">open modal (alt)</button> -->
+      
+  <!-- <input type="text" ref="name">
+  <button @click="handleClick">click me</button> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+
+import Modal from './components/Modal'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { Modal },
+  // components: {
+  //   HelloWorld
+  // }
+  data() {
+    return {
+      title: 'My First Vue App',
+      header: 'Sign up for the Giveaway!',
+      text: 'Grab your ninja swag for half price!',
+      showModal: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal;
+    }
+    // handleClick() {
+    //   console.log(this.$refs.name);
+    //   this.$refs.name.classList.add('active');
+    //   this.$refs.name.focus();
+    // }
   }
 }
 </script>
@@ -22,5 +57,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 </style>
