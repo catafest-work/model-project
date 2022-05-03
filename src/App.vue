@@ -6,9 +6,20 @@
       <h1>{{ header }}</h1> 
       <p>Welcome...</p>
       <div v-if="showModal">
-        <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+        <!-- using props...  :text="text"  -->
+        <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal" /> -->
+        <!-- fix / from />  -->
+        <Modal theme="sale" @close="toggleModal" > 
+          <template v-slot:links>
+           <a href="#">sign up now</a>
+           <a href="#">more info</a>
+          </template>
+          <h1>Ninja Giveaway</h1>
+          <p>Grab your ninja swag for half</p>
+
+        </Modal> 
       </div>
-      <button @click.shift = "toggleModal">open modal (alt)</button>
+      <button @click.alt = "toggleModal">open modal (alt)</button>
 
       <!-- press ALT key and click ... -->
       <!-- <button @click.alt = "toggleModal">open modal (alt)</button> -->
@@ -20,7 +31,7 @@
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 
-import Modal from './components/Modal'
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
