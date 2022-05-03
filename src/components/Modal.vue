@@ -13,7 +13,6 @@
     </div>
   </div>
 </template>
-
 <script>
   export default {
     // using props 
@@ -26,7 +25,6 @@
     }
   }
 </script>
-
 <style> 
 .modal 
 { 
@@ -51,7 +49,6 @@
 .modal p {
   font-style: normal;
 }
-
 .modal .actions {
   text-align: center;
   margin: 30px 0 10px 0;
